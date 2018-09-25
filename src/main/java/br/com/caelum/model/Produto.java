@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Version;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 
@@ -25,21 +26,24 @@ public class Produto {
 	private String nome;
 	@NotEmpty
 	private String linkDaFoto;
-	
+
 	@NotEmpty
-	@Column(columnDefinition="TEXT")
+	@Column(columnDefinition = "TEXT")
 	private String descricao;
-	
+
 	@Min(20)
 	private double preco;
-	
+
 	@Valid
 	@ManyToOne
 	private Loja loja;
-	
+
 	@ManyToMany
 	private List<Categoria> categorias;
-	
+
+	@Version
+	private Integer versao;
+
 	public String getDescricao() {
 		return descricao;
 	}
@@ -47,9 +51,9 @@ public class Produto {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	//método auxiliar para associar categorias com o produto
-	//se funcionar apos ter definido o relacionamento entre produto e categoria
+
+	// método auxiliar para associar categorias com o produto
+	// se funcionar apos ter definido o relacionamento entre produto e categoria
 //	public void adicionarCategorias(Categoria... categorias) {
 //		for (Categoria categoria : categorias) {
 //			this.categorias.add(categoria);
@@ -59,7 +63,7 @@ public class Produto {
 	public String getLinkDaFoto() {
 		return linkDaFoto;
 	}
-	
+
 	public double getPreco() {
 		return preco;
 	}
@@ -71,7 +75,7 @@ public class Produto {
 	public void setLinkDaFoto(String linkDaFoto) {
 		this.linkDaFoto = linkDaFoto;
 	}
-	
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -103,4 +107,13 @@ public class Produto {
 	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
 	}
+
+	public Integer getVersao() {
+		return versao;
+	}
+
+	public void setVersao(Integer versao) {
+		this.versao = versao;
+	}
+
 }

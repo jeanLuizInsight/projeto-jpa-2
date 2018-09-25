@@ -13,6 +13,7 @@
 
 		<div class="panel-body">
 			<form action="${spring:mvcUrl('cadastraProduto').build()}" method="post">
+				<input type="hidden" name="versao" value="${produto.versao}">
 				<div class="form-group">
 					<label for="nome">
 						Nome:
