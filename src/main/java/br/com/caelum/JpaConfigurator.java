@@ -56,6 +56,8 @@ public class JpaConfigurator {
 		props.setProperty("hibernate.cache.use_query_cache", "true");
 		props.setProperty("hibernate.cache.region.factory_class", "org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory");
 		
+		props.setProperty("hibernate.generate_statistics", "true");
+	
 		entityManagerFactory.setJpaProperties(props);
 		return entityManagerFactory;
 	}

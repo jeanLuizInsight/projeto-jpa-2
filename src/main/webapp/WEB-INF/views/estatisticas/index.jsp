@@ -24,11 +24,11 @@
 							<tr>
 								<td>Cache</td>
 								<!-- Hit -->
-								<td></td>
+								<td>${statistics.queryCacheHitCount}</td>
 								<!-- Miss -->
-								<td></td>
-								<! -- Conections -->
-								<td></td>
+								<td>${statistics.queryCacheMissCount}</td>
+								<!-- Conections -->
+								<td>${statistics.connectCount}</td>
 							</tr>
 						</tbody>
 					</table>
