@@ -24,7 +24,10 @@ public class ProdutoDao {
 	private EntityManager em;
 
 	public List<Produto> getProdutos() {
-		return em.createQuery("from Produto", Produto.class).getResultList();
+		TypedQuery<Produto> proutos = em.createQuery("from Produto", Produto.class);
+		// habilitando cache nivel 2 na query...
+		proutos.setHint("org.hibernate.cacheable", "true");
+		return proutos.getResultList();
 	}
 
 	public Produto getProduto(Integer id) {
